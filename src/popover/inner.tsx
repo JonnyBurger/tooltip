@@ -2,8 +2,8 @@ import React, {Component} from 'react';
 import {RefHandler, PopperArrowProps} from 'react-popper';
 import Popper from 'popper.js';
 import {LineStyle} from 'csstype';
-import Content from '../Content';
-import {DivProps} from 'types';
+import Content from '../shared/Content';
+import {DivProps} from 'shared/types';
 
 type PopupProps = {
 	onClose: () => void;

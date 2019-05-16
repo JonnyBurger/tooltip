@@ -3,7 +3,7 @@ import {Manager, Reference, Popper} from 'react-popper';
 import {Placement} from 'popper.js';
 import PopupContent from './inner';
 import {LineStyle} from 'csstype';
-import {DivProps} from 'types';
+import {DivProps} from 'shared/types';
 
 export default ({
 	children,
