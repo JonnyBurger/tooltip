@@ -15,7 +15,8 @@ export default ({
 	borderStyle,
 	arrowSize,
 	popupProps,
-	arrowDivProps
+	arrowDivProps,
+	popupVisible
 }: {
 	children: any;
 	preferredPlacement: Placement;
@@ -27,25 +28,28 @@ export default ({
 	arrowSize?: number;
 	popupProps?: DivProps;
 	arrowDivProps?: DivProps;
+	popupVisible: boolean;
 }) => (
 	<Manager>
 		<Reference>{({ref}) => React.cloneElement(children, {ref})}</Reference>
-		<Popper placement={preferredPlacement}>
-			{({ref, ...popperProps}) => (
-				<PopupContent
-					passRef={ref}
-					{...popperProps}
-					borderWidth={borderWidth}
-					borderStyle={borderStyle}
-					borderColor={borderColor}
-					onClose={onClose}
-					arrowSize={arrowSize}
-					arrowDivProps={arrowDivProps}
-					popupProps={popupProps}
-				>
-					{message}
-				</PopupContent>
-			)}
-		</Popper>
+		{popupVisible ? (
+			<Popper placement={preferredPlacement}>
+				{({ref, ...popperProps}) => (
+					<PopupContent
+						passRef={ref}
+						{...popperProps}
+						borderWidth={borderWidth}
+						borderStyle={borderStyle}
+						borderColor={borderColor}
+						onClose={onClose}
+						arrowSize={arrowSize}
+						arrowDivProps={arrowDivProps}
+						popupProps={popupProps}
+					>
+						{message}
+					</PopupContent>
+				)}
+			</Popper>
+		) : null}
 	</Manager>
 );
