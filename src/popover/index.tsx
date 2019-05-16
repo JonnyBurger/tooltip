@@ -1,7 +1,7 @@
 import React from 'react';
 import {Manager, Reference, Popper} from 'react-popper';
 import {Placement} from 'popper.js';
-import PopupContent from './PopupContent';
+import PopupContent from './inner';
 import {LineStyle} from 'csstype';
 import {DivProps} from 'types';
 

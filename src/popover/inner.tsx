@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import {RefHandler, PopperArrowProps} from 'react-popper';
 import Popper from 'popper.js';
 import {LineStyle} from 'csstype';
-import Popover from '../Popover';
+import Content from '../Content';
 import {DivProps} from 'types';
 
 type PopupProps = {
@@ -69,7 +69,7 @@ export default class extends Component<PopupProps> {
 		const {style: arrowPropsStyle = {}, ...otherArrowProps} = arrowDivProps;
 		return (
 			<div ref={this.el}>
-				<Popover
+				<Content
 					borderWidth={borderWidth}
 					passRef={passRef}
 					borderColor={borderColor}
@@ -97,7 +97,7 @@ export default class extends Component<PopupProps> {
 					style={style}
 				>
 					{children}
-				</Popover>
+				</Content>
 			</div>
 		);
 	}

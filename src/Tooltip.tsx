@@ -2,7 +2,7 @@ import React, {useState} from 'react';
 import {Manager, Reference, Popper} from 'react-popper';
 import {Placement} from 'popper.js';
 import {LineStyle} from 'csstype';
-import Popover from './Popover';
+import Content from './Content';
 import {DivProps} from './types';
 
 export default ({
@@ -40,7 +40,7 @@ export default ({
 			</Reference>
 			<Popper placement={preferredPlacement}>
 				{({ref, ...popoverProps}) => (
-					<Popover
+					<Content
 						arrowSize={arrowSize}
 						borderColor={borderColor}
 						borderWidth={borderWidth}
