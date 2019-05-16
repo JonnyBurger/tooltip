@@ -31,9 +31,11 @@ type PopupProps = {
 export default class extends Component<PopupProps> {
 	el = React.createRef<HTMLDivElement>();
 	clickOff: (arg0: Event) => void;
+	keyPress: (arg0: KeyboardEvent) => void;
 	constructor(props: PopupProps) {
 		super(props);
 		this.clickOff = (_: Event) => {};
+		this.keyPress = (_: KeyboardEvent) => {};
 	}
 	componentDidMount() {
 		this.clickOff = evt => {
@@ -45,21 +47,34 @@ export default class extends Component<PopupProps> {
 				this.props.onClose();
 			}
 		};
+		this.keyPress = (evt: KeyboardEvent) => {
+			if (this.el.current === null) {
+				return;
+			}
+			const keyCode = evt.keyCode || evt.which;
+			if (keyCode === 27) {
+				this.props.onClose();
+			}
+		};
 		document.addEventListener('click', this.clickOff);
+		document.addEventListener('keypress', this.keyPress);
 	}
 	componentWillUnmount() {
 		document.removeEventListener('click', this.clickOff);
+		document.removeEventListener('keypress', this.keyPress);
 	}
 	render() {
 		const {passRef, style, placement, arrowProps, children} = this.props;
-		const {borderWidth = 0} = this.props;
-		const borderColor = this.props.borderColor || '#b3b3b3';
-		const borderStyle = this.props.borderStyle || 'solid';
-		const arrowSize = this.props.arrowSize || 12;
-		const {style: popupPropsStyle = {}, ...otherPopupProps} =
-			this.props.popupProps || {};
-		const {style: arrowPropsStyle = {}, ...otherArrowProps} =
-			this.props.arrowDivProps || {};
+		const {
+			borderWidth = 0,
+			borderColor = '#b3b3b3',
+			borderStyle = 'solid',
+			arrowSize = 12,
+			popupProps = {},
+			arrowDivProps = {}
+		} = this.props;
+		const {style: popupPropsStyle = {}, ...otherPopupProps} = popupProps;
+		const {style: arrowPropsStyle = {}, ...otherArrowProps} = arrowDivProps;
 		return (
 			<div ref={this.el}>
 				<Popover

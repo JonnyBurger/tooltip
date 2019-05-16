@@ -29,7 +29,7 @@ export default class extends Component<{
 			children,
 			borderWidth = 0,
 			borderStyle = 'solid',
-			borderColor = 'gray',
+			borderColor = '#b3b3b3',
 			popupProps = {},
 			arrowDivProps = {},
 			style,

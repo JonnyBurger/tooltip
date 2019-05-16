@@ -9,10 +9,12 @@ export default ({
 	children,
 	message,
 	preferredPlacement,
-	borderColor = 'gray',
+	borderColor = '#b3b3b3',
 	borderWidth = 0,
 	borderStyle = 'solid',
-	arrowSize = 8
+	arrowSize = 8,
+	popupProps = {},
+	arrowDivProps = {}
 }: {
 	children: any;
 	message: any;
@@ -22,6 +24,7 @@ export default ({
 	borderStyle?: LineStyle;
 	arrowSize?: number;
 	popupProps?: DivProps;
+	arrowDivProps?: DivProps;
 }) => {
 	const [tooltip, setTooltip] = useState(false);
 	return (
@@ -42,8 +45,8 @@ export default ({
 						borderColor={borderColor}
 						borderWidth={borderWidth}
 						borderStyle={borderStyle}
-						popupProps={{}}
-						arrowDivProps={{}}
+						popupProps={popupProps}
+						arrowDivProps={arrowDivProps}
 						passRef={ref}
 						visible={tooltip}
 						{...popoverProps}
