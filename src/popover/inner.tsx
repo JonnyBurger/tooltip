@@ -50,11 +50,11 @@ export default class extends Component<PopupProps> {
 			}
 		};
 		document.addEventListener('click', this.clickOff);
-		document.addEventListener('keypress', this.keyPress);
+		document.addEventListener('keydown', this.keyPress);
 	}
 	componentWillUnmount() {
 		document.removeEventListener('click', this.clickOff);
-		document.removeEventListener('keypress', this.keyPress);
+		document.removeEventListener('keydown', this.keyPress);
 	}
 	render() {
 		const {
