@@ -31,7 +31,9 @@ export default ({
 	popupVisible: boolean;
 }) => (
 	<Manager>
-		<Reference>{({ref}) => React.cloneElement(children, {ref})}</Reference>
+		<Reference>
+			{({ref}) => React.cloneElement(children, {innerRef: ref})}
+		</Reference>
 		{popupVisible ? (
 			<Popper placement={preferredPlacement}>
 				{({ref, ...popperProps}) => (
@@ -45,6 +47,7 @@ export default ({
 						arrowSize={arrowSize}
 						arrowDivProps={arrowDivProps}
 						popupProps={popupProps}
+						visible={popupVisible}
 					>
 						{message}
 					</PopupContent>

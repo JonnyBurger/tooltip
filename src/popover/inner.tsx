@@ -18,6 +18,7 @@ type PopupProps = {
 	arrowSize?: number;
 	popupProps?: DivProps;
 	arrowDivProps?: DivProps;
+	visible: boolean;
 };
 
 export default class extends Component<PopupProps> {
@@ -56,7 +57,14 @@ export default class extends Component<PopupProps> {
 		document.removeEventListener('keypress', this.keyPress);
 	}
 	render() {
-		const {passRef, style, placement, arrowProps, children} = this.props;
+		const {
+			passRef,
+			visible,
+			style,
+			placement,
+			arrowProps,
+			children
+		} = this.props;
 		const {
 			borderWidth = 0,
 			borderColor = '#b3b3b3',
@@ -74,7 +82,7 @@ export default class extends Component<PopupProps> {
 					passRef={passRef}
 					borderColor={borderColor}
 					borderStyle={borderStyle}
-					visible
+					visible={visible}
 					arrowSize={arrowSize}
 					placement={placement}
 					popupProps={{
