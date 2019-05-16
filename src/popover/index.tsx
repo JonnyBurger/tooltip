@@ -10,7 +10,7 @@ export default ({
 	preferredPlacement,
 	onClose,
 	message,
-	borderWidth,
+	borderWidth = 1,
 	borderColor,
 	borderStyle,
 	arrowSize,
