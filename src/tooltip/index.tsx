@@ -2,8 +2,8 @@ import React, {useState} from 'react';
 import {Manager, Reference, Popper} from 'react-popper';
 import {Placement} from 'popper.js';
 import {LineStyle} from 'csstype';
-import Content from './Content';
-import {DivProps} from './types';
+import Content from '../Content';
+import {DivProps} from '../types';
 
 export default ({
 	children,
@@ -52,7 +52,7 @@ export default ({
 						{...popoverProps}
 					>
 						{message}
-					</Popover>
+					</Content>
 				)}
 			</Popper>
 		</Manager>
