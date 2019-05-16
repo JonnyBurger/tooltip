@@ -1,8 +1,9 @@
 import React, {Component} from 'react';
-import {RefHandler} from 'react-popper';
+import {RefHandler, PopperArrowProps} from 'react-popper';
 import Popper from 'popper.js';
 import {LineStyle} from 'csstype';
 import Popover from '../Popover';
+import {DivProps} from 'types';
 
 type PopupProps = {
 	onClose: () => void;
@@ -12,20 +13,11 @@ type PopupProps = {
 	borderWidth?: number;
 	borderColor?: string;
 	borderStyle?: LineStyle;
-	arrowProps: {
-		style: object;
-		ref: RefHandler;
-	};
+	arrowProps: PopperArrowProps;
 	children: any;
 	arrowSize?: number;
-	popupProps?: React.DetailedHTMLProps<
-		React.HTMLAttributes<HTMLDivElement>,
-		HTMLDivElement
-	>;
-	arrowDivProps?: React.DetailedHTMLProps<
-		React.HTMLAttributes<HTMLDivElement>,
-		HTMLDivElement
-	>;
+	popupProps?: DivProps;
+	arrowDivProps?: DivProps;
 };
 
 export default class extends Component<PopupProps> {
