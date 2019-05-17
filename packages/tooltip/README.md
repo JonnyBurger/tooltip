@@ -11,11 +11,6 @@ export default () => (
     <Tooltip
         tip={<div>hi there</div>}
         preferredPlacement="bottom-end"
-        popupProps={{
-            style: {
-                backgroundColor: "blue"
-            }
-        }}
     >
       <button>Hover over me</button>
     </Tooltip>
