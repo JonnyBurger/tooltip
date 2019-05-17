@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {CSSProperties} from 'react';
 import {Manager, Reference, Popper} from 'react-popper';
 import {Placement} from 'popper.js';
 import PopupContent from './inner';
@@ -16,7 +16,8 @@ export default ({
 	arrowSize,
 	popupProps,
 	arrowDivProps,
-	popupVisible
+	popupVisible,
+	style = {}
 }: {
 	children: any;
 	preferredPlacement: Placement;
@@ -29,6 +30,7 @@ export default ({
 	popupProps?: DivProps;
 	arrowDivProps?: DivProps;
 	popupVisible: boolean;
+	style?: CSSProperties;
 }) => (
 	<Manager>
 		<Reference>
@@ -36,10 +38,11 @@ export default ({
 		</Reference>
 		{popupVisible ? (
 			<Popper placement={preferredPlacement}>
-				{({ref, ...popperProps}) => (
+				{({ref, arrowProps: popperArrowProps, ...popperProps}) => (
 					<PopupContent
 						passRef={ref}
 						{...popperProps}
+						popperArrowProps={popperArrowProps}
 						borderWidth={borderWidth}
 						borderStyle={borderStyle}
 						borderColor={borderColor}
@@ -48,6 +51,7 @@ export default ({
 						arrowDivProps={arrowDivProps}
 						popupProps={popupProps}
 						visible={popupVisible}
+						commonStyle={style}
 					>
 						{tip}
 					</PopupContent>

@@ -11,7 +11,9 @@
     "author": "",
     "license": "ISC",
     "dependencies": {
-        "popper.js": "^1.15.0",
+        "popper.js": "^1.15.0"
+    },
+    "peerDependencies": {
         "react": "^16.8.6"
     },
     "devDependencies": {

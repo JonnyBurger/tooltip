@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useState, CSSProperties} from 'react';
 import {Manager, Reference, Popper} from 'react-popper';
 import {Placement} from 'popper.js';
 import {LineStyle} from 'csstype';
@@ -12,8 +12,11 @@ export default ({
 	borderWidth = 0,
 	borderStyle = 'solid',
 	arrowSize = 8,
-	popupProps = {},
-	arrowDivProps = {}
+	bubbleProps = {},
+	arrowDivProps = {},
+	bubbleStyle = {},
+	arrowStyle = {},
+	style = {}
 }: {
 	children: any;
 	tip: any;
@@ -22,8 +25,11 @@ export default ({
 	borderWidth?: number;
 	borderStyle?: LineStyle;
 	arrowSize?: number;
-	popupProps?: DivProps;
+	bubbleProps?: DivProps;
+	bubbleStyle?: CSSProperties;
 	arrowDivProps?: DivProps;
+	arrowStyle?: CSSProperties;
+	style?: CSSProperties;
 }) => {
 	const [tooltip, setTooltip] = useState(false);
 	return (
@@ -38,16 +44,20 @@ export default ({
 				}
 			</Reference>
 			<Popper placement={preferredPlacement}>
-				{({ref, ...popoverProps}) => (
+				{({ref, arrowProps: popperArrowProps, ...popoverProps}) => (
 					<Content
 						arrowSize={arrowSize}
 						borderColor={borderColor}
 						borderWidth={borderWidth}
 						borderStyle={borderStyle}
-						popupProps={popupProps}
-						arrowDivProps={arrowDivProps}
+						arrowProps={arrowDivProps}
+						arrowStyle={arrowStyle}
+						bubbleStyle={bubbleStyle}
+						bubbleProps={bubbleProps}
 						passRef={ref}
 						visible={tooltip}
+						commonStyle={style}
+						popperArrowProps={popperArrowProps}
 						{...popoverProps}
 					>
 						{tip}

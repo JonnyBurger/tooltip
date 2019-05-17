@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React, {Component, CSSProperties} from 'react';
 import {RefHandler, PopperArrowProps} from 'react-popper';
 import Popper from 'popper.js';
 import {LineStyle} from 'csstype';
@@ -12,12 +12,13 @@ type PopupProps = {
 	borderWidth?: number;
 	borderColor?: string;
 	borderStyle?: LineStyle;
-	arrowProps: PopperArrowProps;
+	popperArrowProps: PopperArrowProps;
 	children: any;
 	arrowSize?: number;
 	popupProps?: DivProps;
 	arrowDivProps?: DivProps;
 	visible: boolean;
+	commonStyle: CSSProperties;
 };
 
 export default class extends Component<PopupProps> {
@@ -61,7 +62,7 @@ export default class extends Component<PopupProps> {
 			visible,
 			style,
 			placement,
-			arrowProps,
+			popperArrowProps,
 			children
 		} = this.props;
 		const {
@@ -70,7 +71,8 @@ export default class extends Component<PopupProps> {
 			borderStyle = 'solid',
 			arrowSize = 12,
 			popupProps = {},
-			arrowDivProps = {}
+			arrowDivProps = {},
+			commonStyle
 		} = this.props;
 		const {style: popupPropsStyle = {}, ...otherPopupProps} = popupProps;
 		const {style: arrowPropsStyle = {}, ...otherArrowProps} = arrowDivProps;
@@ -84,24 +86,18 @@ export default class extends Component<PopupProps> {
 					visible={visible}
 					arrowSize={arrowSize}
 					placement={placement}
-					popupProps={{
-						...otherPopupProps,
-						style: {
-							padding: 12,
-							backgroundColor: 'white',
-							color: 'black',
-							...popupPropsStyle
-						}
+					bubbleProps={otherPopupProps}
+					bubbleStyle={{
+						padding: 12,
+						backgroundColor: 'white',
+						color: 'black',
+						...popupPropsStyle
 					}}
-					arrowDivProps={{
-						...otherArrowProps,
-						style: {
-							backgroundColor: 'white',
-							...arrowPropsStyle
-						}
-					}}
-					arrowProps={arrowProps}
+					arrowProps={otherArrowProps}
+					arrowStyle={{backgroundColor: 'white', ...arrowPropsStyle}}
+					popperArrowProps={popperArrowProps}
 					style={style}
+					commonStyle={commonStyle}
 				>
 					{children}
 				</Content>

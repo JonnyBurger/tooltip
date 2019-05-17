@@ -4,6 +4,7 @@ import Popper from 'popper.js';
 import {LineStyle} from 'csstype';
 import {getContainerStyle, getArrowStyle} from './positioning';
 import {DivProps} from './types';
+import validateCss from './validate.css';
 
 const defaultColor = '#222';
 
@@ -11,32 +12,49 @@ export default class extends Component<{
 	passRef: RefHandler;
 	placement: Popper.Placement;
 	visible: boolean;
-	popupProps: DivProps;
-	arrowDivProps: DivProps;
+	bubbleProps: DivProps;
+	arrowProps: DivProps;
+	arrowStyle: CSSProperties;
 	borderWidth: number;
 	borderStyle: LineStyle;
 	borderColor: string;
-	arrowProps: PopperArrowProps;
+	popperArrowProps: PopperArrowProps;
 	style: CSSProperties;
+	bubbleStyle: CSSProperties;
 	arrowSize?: number;
+	commonStyle?: CSSProperties;
 }> {
 	render() {
 		const {
 			passRef,
 			visible,
 			placement,
-			arrowProps,
+			popperArrowProps,
 			children,
 			borderWidth = 0,
 			borderStyle = 'solid',
 			borderColor = '#b3b3b3',
-			popupProps = {},
-			arrowDivProps = {},
+			bubbleProps = {},
+			arrowProps = {},
 			style,
-			arrowSize = 6
+			arrowSize = 6,
+			arrowStyle = {},
+			bubbleStyle = {},
+			commonStyle = {}
 		} = this.props;
-		const {style: customStyle = {}, ...customProps} = popupProps;
-		const {style: customArrowStyle = {}, ...customDivProps} = arrowDivProps;
+		const {style: customStyle, ...customProps} = bubbleProps;
+		const {style: customArrowStyle, ...customDivProps} = arrowProps;
+		if (customArrowStyle) {
+			throw new TypeError(
+				`[@jonny/ui]: Pass 'arrowStyle' instead of 'arrowProps.style'`
+			);
+		}
+		if (customStyle) {
+			throw new TypeError(
+				`[@jonny/ui]: Pass 'bubbleStyle' instead of 'bubbleProps.style'`
+			);
+		}
+		validateCss(commonStyle);
 		return (
 			<div
 				ref={passRef}
@@ -58,15 +76,15 @@ export default class extends Component<{
 					borderColor,
 					...style,
 					...getContainerStyle(placement, borderWidth, arrowSize),
-					...customStyle
+					...bubbleStyle
 				}}
 				{...customProps}
 				data-placement={placement}
 			>
 				<div
-					ref={arrowProps.ref}
+					ref={popperArrowProps.ref}
 					style={{
-						...arrowProps.style,
+						...popperArrowProps.style,
 						...getArrowStyle(
 							placement,
 							borderWidth,
@@ -75,7 +93,7 @@ export default class extends Component<{
 							arrowSize
 						),
 						backgroundColor: defaultColor,
-						...customArrowStyle
+						...arrowStyle
 					}}
 					{...customDivProps}
 				/>
