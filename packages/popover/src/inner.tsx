@@ -7,7 +7,7 @@ import {Content, DivProps} from '@jonny/base-ui';
 type PopupProps = {
 	onClose: () => void;
 	passRef: RefHandler;
-	style: object;
+	style: CSSProperties;
 	placement: Popper.Placement;
 	borderWidth?: number;
 	borderColor?: string;
@@ -21,6 +21,12 @@ type PopupProps = {
 	commonStyle: CSSProperties;
 	bubbleStyle: CSSProperties;
 	arrowStyle: CSSProperties;
+	bubbleBorderWidth?: number;
+	arrowBorderWidth?: number;
+	bubbleBorderColor?: string;
+	arrowBorderColor?: string;
+	bubbleBorderStyle?: LineStyle;
+	arrowBorderStyle?: LineStyle;
 };
 
 export default class extends Component<PopupProps> {
@@ -65,9 +71,7 @@ export default class extends Component<PopupProps> {
 			style,
 			placement,
 			popperArrowProps,
-			children
-		} = this.props;
-		const {
+			children,
 			borderWidth = 0,
 			borderColor = '#b3b3b3',
 			borderStyle = 'solid',
@@ -76,15 +80,27 @@ export default class extends Component<PopupProps> {
 			arrowProps = {},
 			commonStyle,
 			bubbleStyle,
-			arrowStyle
+			arrowStyle,
+			bubbleBorderWidth,
+			arrowBorderWidth,
+			bubbleBorderColor,
+			arrowBorderColor,
+			bubbleBorderStyle,
+			arrowBorderStyle
 		} = this.props;
 		return (
 			<div ref={this.el}>
 				<Content
 					borderWidth={borderWidth}
+					bubbleBorderWidth={bubbleBorderWidth}
+					arrowBorderWidth={arrowBorderWidth}
 					passRef={passRef}
 					borderColor={borderColor}
+					bubbleBorderColor={bubbleBorderColor}
+					arrowBorderColor={arrowBorderColor}
 					borderStyle={borderStyle}
+					bubbleBorderStyle={bubbleBorderStyle}
+					arrowBorderStyle={arrowBorderStyle}
 					visible={visible}
 					arrowSize={arrowSize}
 					placement={placement}
@@ -93,10 +109,11 @@ export default class extends Component<PopupProps> {
 						padding: 12,
 						backgroundColor: 'white',
 						color: 'black',
+						...commonStyle,
 						...bubbleStyle
 					}}
 					arrowProps={arrowProps}
-					arrowStyle={{backgroundColor: 'white', ...arrowStyle}}
+					arrowStyle={{backgroundColor: 'white', ...commonStyle, ...arrowStyle}}
 					popperArrowProps={popperArrowProps}
 					style={style}
 					commonStyle={commonStyle}

@@ -19,7 +19,13 @@ export default ({
 	popupVisible,
 	style = {},
 	arrowStyle = {},
-	bubbleStyle = {}
+	bubbleStyle = {},
+	bubbleBorderWidth,
+	arrowBorderWidth,
+	bubbleBorderColor,
+	arrowBorderColor,
+	bubbleBorderStyle,
+	arrowBorderStyle
 }: {
 	children: any;
 	preferredPlacement: Placement;
@@ -35,6 +41,12 @@ export default ({
 	style?: CSSProperties;
 	arrowStyle?: CSSProperties;
 	bubbleStyle?: CSSProperties;
+	bubbleBorderWidth?: number;
+	arrowBorderWidth?: number;
+	bubbleBorderColor?: string;
+	arrowBorderColor?: string;
+	bubbleBorderStyle?: LineStyle;
+	arrowBorderStyle?: LineStyle;
 }) => (
 	<Manager>
 		<Reference>{({ref}) => React.cloneElement(children, {ref})}</Reference>
@@ -56,6 +68,12 @@ export default ({
 						bubbleStyle={bubbleStyle}
 						visible={popupVisible}
 						commonStyle={style}
+						bubbleBorderWidth={bubbleBorderWidth}
+						arrowBorderWidth={arrowBorderWidth}
+						bubbleBorderColor={bubbleBorderColor}
+						arrowBorderColor={arrowBorderColor}
+						bubbleBorderStyle={bubbleBorderStyle}
+						arrowBorderStyle={arrowBorderStyle}
 					>
 						{tip}
 					</PopupContent>

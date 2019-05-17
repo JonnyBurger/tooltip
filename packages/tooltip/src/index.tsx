@@ -16,7 +16,13 @@ export default ({
 	arrowProps = {},
 	bubbleStyle = {},
 	arrowStyle = {},
-	style = {}
+	style = {},
+	bubbleBorderWidth,
+	arrowBorderWidth,
+	bubbleBorderColor,
+	arrowBorderColor,
+	bubbleBorderStyle,
+	arrowBorderStyle
 }: {
 	children: any;
 	tip: any;
@@ -30,6 +36,12 @@ export default ({
 	arrowProps?: DivProps;
 	arrowStyle?: CSSProperties;
 	style?: CSSProperties;
+	bubbleBorderWidth?: number;
+	arrowBorderWidth?: number;
+	bubbleBorderColor?: string;
+	arrowBorderColor?: string;
+	bubbleBorderStyle?: LineStyle;
+	arrowBorderStyle?: LineStyle;
 }) => {
 	const [tooltip, setTooltip] = useState(false);
 	return (
@@ -48,8 +60,14 @@ export default ({
 					<Content
 						arrowSize={arrowSize}
 						borderColor={borderColor}
+						bubbleBorderColor={bubbleBorderColor}
+						arrowBorderColor={arrowBorderColor}
 						borderWidth={borderWidth}
+						bubbleBorderWidth={bubbleBorderWidth}
+						arrowBorderWidth={arrowBorderWidth}
 						borderStyle={borderStyle}
+						bubbleBorderStyle={bubbleBorderStyle}
+						arrowBorderStyle={arrowBorderStyle}
 						arrowProps={arrowProps}
 						arrowStyle={arrowStyle}
 						bubbleStyle={bubbleStyle}

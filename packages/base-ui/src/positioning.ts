@@ -4,7 +4,8 @@ import {LineStyle} from 'csstype';
 
 export const getArrowStyle = (
 	placement: Placement,
-	borderWidth: number,
+	bubbleBorderWidth: number,
+	arrowBorderWidth: number,
 	borderStyle: LineStyle,
 	borderColor: string,
 	tooltipSize: number
@@ -14,15 +15,15 @@ export const getArrowStyle = (
 	const isRight = Boolean(placement && placement.indexOf('right') === 0);
 	const isTop = Boolean(placement && placement.indexOf('top') === 0);
 
-	const offset = Math.ceil(0 - tooltipSize / 2) - borderWidth;
+	const offset = Math.ceil(0 - tooltipSize / 2) - bubbleBorderWidth;
 
 	return {
 		...(isBottom
 			? {
-					borderTopWidth: borderWidth,
+					borderTopWidth: arrowBorderWidth,
 					borderTopStyle: borderStyle,
 					borderTopColor: borderColor,
-					borderLeftWidth: borderWidth,
+					borderLeftWidth: arrowBorderWidth,
 					borderLeftStyle: borderStyle,
 					borderLeftColor: borderColor,
 					borderRightWidth: 0,
@@ -32,10 +33,10 @@ export const getArrowStyle = (
 			: {}),
 		...(isTop
 			? {
-					borderBottomWidth: borderWidth,
+					borderBottomWidth: arrowBorderWidth,
 					borderBottomColor: borderColor,
 					borderBottomStyle: borderStyle,
-					borderRightWidth: borderWidth,
+					borderRightWidth: arrowBorderWidth,
 					borderRightStyle: borderStyle,
 					borderRightColor: borderColor,
 					borderLeftWidth: 0,
@@ -45,10 +46,10 @@ export const getArrowStyle = (
 			: {}),
 		...(isRight
 			? {
-					borderLeftWidth: borderWidth,
+					borderLeftWidth: arrowBorderWidth,
 					borderLeftColor: borderColor,
 					borderLeftStyle: borderStyle,
-					borderBottomWidth: borderWidth,
+					borderBottomWidth: arrowBorderWidth,
 					borderBottomColor: borderColor,
 					borderBottomStyle: borderStyle,
 					borderRightWidth: 0,
@@ -58,10 +59,10 @@ export const getArrowStyle = (
 			: {}),
 		...(isLeft
 			? {
-					borderRightWidth: borderWidth,
+					borderRightWidth: arrowBorderWidth,
 					borderRightColor: borderColor,
 					borderRightStyle: borderStyle,
-					borderTopWidth: borderWidth,
+					borderTopWidth: arrowBorderWidth,
 					borderTopColor: borderColor,
 					borderTopStyle: borderStyle,
 					borderLeftWidth: 0,

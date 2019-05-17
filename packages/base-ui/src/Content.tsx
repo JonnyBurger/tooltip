@@ -16,8 +16,14 @@ export default class extends Component<{
 	arrowProps: DivProps;
 	arrowStyle: CSSProperties;
 	borderWidth: number;
+	bubbleBorderWidth?: number;
+	arrowBorderWidth?: number;
 	borderStyle: LineStyle;
+	bubbleBorderStyle?: LineStyle;
+	arrowBorderStyle?: LineStyle;
 	borderColor: string;
+	bubbleBorderColor?: string;
+	arrowBorderColor?: string;
 	popperArrowProps: PopperArrowProps;
 	style: CSSProperties;
 	bubbleStyle: CSSProperties;
@@ -32,8 +38,14 @@ export default class extends Component<{
 			popperArrowProps,
 			children,
 			borderWidth = 0,
+			bubbleBorderWidth,
+			arrowBorderWidth,
 			borderStyle = 'solid',
+			bubbleBorderStyle,
+			arrowBorderColor,
 			borderColor = '#b3b3b3',
+			bubbleBorderColor,
+			arrowBorderStyle,
 			bubbleProps = {},
 			arrowProps = {},
 			style,
@@ -55,6 +67,12 @@ export default class extends Component<{
 			);
 		}
 		validateCss(commonStyle);
+		const actualBubbleBorderWidth =
+			typeof bubbleBorderWidth === 'undefined'
+				? borderWidth
+				: bubbleBorderWidth;
+		const actualArrowBorderWidth =
+			typeof arrowBorderWidth === 'undefined' ? borderWidth : arrowBorderWidth;
 		return (
 			<div
 				ref={passRef}
@@ -71,11 +89,11 @@ export default class extends Component<{
 					fontSize: 12,
 					zIndex: 1,
 					textAlign: 'left',
-					borderWidth,
-					borderStyle,
-					borderColor,
+					borderWidth: actualBubbleBorderWidth,
+					borderStyle: bubbleBorderStyle || borderStyle,
+					borderColor: bubbleBorderColor || borderColor,
 					...style,
-					...getContainerStyle(placement, borderWidth, arrowSize),
+					...getContainerStyle(placement, actualBubbleBorderWidth, arrowSize),
 					...commonStyle,
 					...bubbleStyle
 				}}
@@ -88,9 +106,10 @@ export default class extends Component<{
 						...popperArrowProps.style,
 						...getArrowStyle(
 							placement,
-							borderWidth,
-							borderStyle,
-							borderColor,
+							actualBubbleBorderWidth,
+							actualArrowBorderWidth,
+							arrowBorderStyle || borderStyle,
+							arrowBorderColor || borderColor,
 							arrowSize
 						),
 						backgroundColor: defaultColor,
