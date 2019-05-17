@@ -1,6 +1,6 @@
 {
     "name": "@jonny/popover",
-    "version": "1.0.0-alpha.19",
+    "version": "1.0.0-alpha.20",
     "description": "My favorite popover",
     "main": "dist",
     "scripts": {
@@ -9,7 +9,7 @@
         "prepare": "npm run build"
     },
     "dependencies": {
-        "@jonny/base-ui": "^1.0.0-alpha.19"
+        "@jonny/base-ui": "^1.0.0-alpha.20"
     },
     "author": "",
     "private": false,
