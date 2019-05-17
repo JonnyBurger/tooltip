@@ -15,10 +15,12 @@ type PopupProps = {
 	popperArrowProps: PopperArrowProps;
 	children: any;
 	arrowSize?: number;
-	popupProps?: DivProps;
-	arrowDivProps?: DivProps;
+	bubbleProps?: DivProps;
+	arrowProps?: DivProps;
 	visible: boolean;
 	commonStyle: CSSProperties;
+	bubbleStyle: CSSProperties;
+	arrowStyle: CSSProperties;
 };
 
 export default class extends Component<PopupProps> {
@@ -70,12 +72,12 @@ export default class extends Component<PopupProps> {
 			borderColor = '#b3b3b3',
 			borderStyle = 'solid',
 			arrowSize = 12,
-			popupProps = {},
-			arrowDivProps = {},
-			commonStyle
+			bubbleProps = {},
+			arrowProps = {},
+			commonStyle,
+			bubbleStyle,
+			arrowStyle
 		} = this.props;
-		const {style: popupPropsStyle = {}, ...otherPopupProps} = popupProps;
-		const {style: arrowPropsStyle = {}, ...otherArrowProps} = arrowDivProps;
 		return (
 			<div ref={this.el}>
 				<Content
@@ -86,15 +88,15 @@ export default class extends Component<PopupProps> {
 					visible={visible}
 					arrowSize={arrowSize}
 					placement={placement}
-					bubbleProps={otherPopupProps}
+					bubbleProps={bubbleProps}
 					bubbleStyle={{
 						padding: 12,
 						backgroundColor: 'white',
 						color: 'black',
-						...popupPropsStyle
+						...bubbleStyle
 					}}
-					arrowProps={otherArrowProps}
-					arrowStyle={{backgroundColor: 'white', ...arrowPropsStyle}}
+					arrowProps={arrowProps}
+					arrowStyle={{backgroundColor: 'white', ...arrowStyle}}
 					popperArrowProps={popperArrowProps}
 					style={style}
 					commonStyle={commonStyle}

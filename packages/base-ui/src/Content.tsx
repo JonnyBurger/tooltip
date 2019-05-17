@@ -76,6 +76,7 @@ export default class extends Component<{
 					borderColor,
 					...style,
 					...getContainerStyle(placement, borderWidth, arrowSize),
+					...commonStyle,
 					...bubbleStyle
 				}}
 				{...customProps}
@@ -93,6 +94,7 @@ export default class extends Component<{
 							arrowSize
 						),
 						backgroundColor: defaultColor,
+						...commonStyle,
 						...arrowStyle
 					}}
 					{...customDivProps}

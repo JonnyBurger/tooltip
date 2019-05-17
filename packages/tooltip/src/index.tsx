@@ -13,7 +13,7 @@ export default ({
 	borderStyle = 'solid',
 	arrowSize = 8,
 	bubbleProps = {},
-	arrowDivProps = {},
+	arrowProps = {},
 	bubbleStyle = {},
 	arrowStyle = {},
 	style = {}
@@ -27,7 +27,7 @@ export default ({
 	arrowSize?: number;
 	bubbleProps?: DivProps;
 	bubbleStyle?: CSSProperties;
-	arrowDivProps?: DivProps;
+	arrowProps?: DivProps;
 	arrowStyle?: CSSProperties;
 	style?: CSSProperties;
 }) => {
@@ -50,7 +50,7 @@ export default ({
 						borderColor={borderColor}
 						borderWidth={borderWidth}
 						borderStyle={borderStyle}
-						arrowProps={arrowDivProps}
+						arrowProps={arrowProps}
 						arrowStyle={arrowStyle}
 						bubbleStyle={bubbleStyle}
 						bubbleProps={bubbleProps}

@@ -14,10 +14,12 @@ export default ({
 	borderColor,
 	borderStyle,
 	arrowSize,
-	popupProps,
-	arrowDivProps,
+	bubbleProps,
+	arrowProps,
 	popupVisible,
-	style = {}
+	style = {},
+	arrowStyle = {},
+	bubbleStyle = {}
 }: {
 	children: any;
 	preferredPlacement: Placement;
@@ -27,10 +29,12 @@ export default ({
 	borderColor?: string;
 	borderStyle?: LineStyle;
 	arrowSize?: number;
-	popupProps?: DivProps;
-	arrowDivProps?: DivProps;
+	bubbleProps?: DivProps;
+	arrowProps?: DivProps;
 	popupVisible: boolean;
 	style?: CSSProperties;
+	arrowStyle?: CSSProperties;
+	bubbleStyle?: CSSProperties;
 }) => (
 	<Manager>
 		<Reference>
@@ -48,8 +52,10 @@ export default ({
 						borderColor={borderColor}
 						onClose={onClose}
 						arrowSize={arrowSize}
-						arrowDivProps={arrowDivProps}
-						popupProps={popupProps}
+						arrowProps={arrowProps}
+						bubbleProps={bubbleProps}
+						arrowStyle={arrowStyle}
+						bubbleStyle={bubbleStyle}
 						visible={popupVisible}
 						commonStyle={style}
 					>

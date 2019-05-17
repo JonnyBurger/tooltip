@@ -35,3 +35,36 @@ A PopperJS.Placement - one of:
 ```
 
 Note that the tooltip might end up being placed differently to avoid the edges of the viewport.
+
+### `arrowSize`
+
+Size of the arrow of the tooltip. Default is `8` resulting in a 8x8px square rotated.
+
+### `borderWidth`
+
+Width of the Tooltip border (bubble and arrow). Default: `0`
+
+### `borderColor`
+
+Color of the Tooltip border (bubble and arrow).
+Default `#b3b3b3`
+
+### `borderStyle`
+
+Style of the Tooltip border (bubble and arrow).
+Default `solid`
+
+### `style`
+Styles to be applied to both the bubble and the arrow.
+
+### `bubbleStyle`
+Styles to be applied to the bubble
+
+### `arrowStyle`
+Styles to be applied to the arrow.
+
+### `bubbleProps`
+Props to be applied to the bubble `<div>`
+
+### `arrowProps`
+Props to be applied to the arrow `<div>`.
