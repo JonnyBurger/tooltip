@@ -1,2 +1,5 @@
 node_modules
 dist
+lerna-debug.log
+yarn-error.log
+*.tsbuildinfo

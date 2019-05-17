@@ -2,8 +2,7 @@ import React, {useState} from 'react';
 import {Manager, Reference, Popper} from 'react-popper';
 import {Placement} from 'popper.js';
 import {LineStyle} from 'csstype';
-import Content from '../shared/Content';
-import {DivProps} from '../shared/types';
+import {Content, DivProps} from '@jonny/base-ui';
 
 export default ({
 	children,
