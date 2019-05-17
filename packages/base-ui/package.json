@@ -1,0 +1,19 @@
+{
+    "name": "@jonny/base-ui",
+    "version": "1.0.0-alpha.5",
+    "main": "dist",
+    "scripts": {
+        "test": "exit 0",
+        "build": "tsc -d",
+        "prepare": "npm run build"
+    },
+    "author": "",
+    "license": "ISC",
+    "dependencies": {
+        "popper.js": "^1.15.0",
+        "react": "^16.8.6"
+    },
+    "devDependencies": {
+        "@types/react": "^16.8.17"
+    }
+}
