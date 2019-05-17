@@ -53,7 +53,7 @@ export const getArrowStyle = (
 					borderBottomStyle: borderStyle,
 					borderRightWidth: 0,
 					borderTopWidth: 0,
-					right: offset
+					left: offset
 			  }
 			: {}),
 		...(isLeft
@@ -66,7 +66,7 @@ export const getArrowStyle = (
 					borderTopStyle: borderStyle,
 					borderLeftWidth: 0,
 					borderBottomWidth: 0,
-					left: offset
+					right: offset
 			  }
 			: {}),
 		position: 'absolute',
