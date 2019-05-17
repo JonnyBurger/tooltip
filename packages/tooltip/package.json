@@ -1,6 +1,6 @@
 {
     "name": "@jonny/tooltip",
-    "version": "1.0.0-alpha.5",
+    "version": "1.0.0-alpha.6",
     "description": "My favorite tooltip",
     "main": "dist",
     "scripts": {
@@ -9,7 +9,7 @@
         "prepare": "npm run build"
     },
     "dependencies": {
-        "@jonny/base-ui": "^1.0.0-alpha.5",
+        "@jonny/base-ui": "^1.0.0-alpha.6",
         "csstype": "^2.6.4",
         "popper.js": "^1.15.0",
         "react": "^16.8.6",
@@ -19,5 +19,6 @@
     "license": "ISC",
     "devDependencies": {
         "@types/react": "^16.8.17"
-    }
+    },
+    "private": false
 }

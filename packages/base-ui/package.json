@@ -1,12 +1,13 @@
 {
     "name": "@jonny/base-ui",
-    "version": "1.0.0-alpha.5",
+    "version": "1.0.0-alpha.6",
     "main": "dist",
     "scripts": {
         "test": "exit 0",
         "build": "tsc -d",
         "prepare": "npm run build"
     },
+    "private": false,
     "author": "",
     "license": "ISC",
     "dependencies": {
