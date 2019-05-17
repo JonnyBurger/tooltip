@@ -9,7 +9,7 @@ import Tooltip from '@jonny/tooltip'
 
 export default () => (
     <Tooltip
-        tip={"hi there"}
+        tip={<div>hi there</div>}
         preferredPlacement="bottom-end"
         popupProps={{
             style: {
@@ -17,7 +17,7 @@ export default () => (
             }
         }}
     >
-      <button>hover over me</button>
+      <button>Hover over me</button>
     </Tooltip>
 )
 
@@ -40,25 +40,11 @@ Note that the tooltip might end up being placed differently to avoid the edges o
 
 Size of the arrow of the tooltip. Default is `8` resulting in a 8x8px square rotated.
 
-### `borderWidth`
-
-Width of the Tooltip border (bubble and arrow). Default: `0`
-
-### `borderColor`
-
-Color of the Tooltip border (bubble and arrow).
-Default `#b3b3b3`
-
-### `borderStyle`
-
-Style of the Tooltip border (bubble and arrow).
-Default `solid`
-
 ### `style`
-Styles to be applied to both the bubble and the arrow.
+Styles to be applied to both the bubble and the arrow. For borders, use the props instead.
 
 ### `bubbleStyle`
-Styles to be applied to the bubble
+Styles to be applied to the bubble.
 
 ### `arrowStyle`
 Styles to be applied to the arrow.
@@ -68,3 +54,52 @@ Props to be applied to the bubble `<div>`
 
 ### `arrowProps`
 Props to be applied to the arrow `<div>`.
+
+
+### `borderWidth`
+
+Width of the Tooltip border (bubble and arrow). Default: `0`
+
+
+### `bubbleBorderWidth`
+
+Width of the border of the tooltip bubble. Overrides `borderWidth`
+
+### `arrowBorderWidth`
+
+Width of the border of the tooltip arrow. Overrides `borderWidth`
+
+
+### `borderColor`
+
+Color of the Tooltip border (bubble and arrow).
+Default `#b3b3b3`
+
+### `bubbleBorderWidth`
+
+Color of the bubble border.
+Overrides `borderColor`
+
+### `arrowBorderWidth`
+
+Color of the arrow border.
+Overrides `borderColor`
+
+### `borderStyle`
+
+Style of the Tooltip border (bubble and arrow).
+Default `solid`
+
+### `bubbleBorderStyle`
+
+Border style of the Tooltip bubble.
+Overrides `borderStyle`
+
+### `arrowBorderStyle`
+
+Border style of the Tooltip arrow.
+Overrides `borderStyle`
+
+## Also see
+
+- [@jonny/popover](https://npmjs.com/package/@jonny/popover)
