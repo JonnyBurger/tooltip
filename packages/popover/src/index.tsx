@@ -37,9 +37,7 @@ export default ({
 	bubbleStyle?: CSSProperties;
 }) => (
 	<Manager>
-		<Reference>
-			{({ref}) => React.cloneElement(children, {innerRef: ref})}
-		</Reference>
+		<Reference>{({ref}) => React.cloneElement(children, {ref})}</Reference>
 		{popupVisible ? (
 			<Popper placement={preferredPlacement}>
 				{({ref, arrowProps: popperArrowProps, ...popperProps}) => (
