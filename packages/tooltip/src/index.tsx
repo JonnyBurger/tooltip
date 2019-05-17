@@ -6,7 +6,7 @@ import {Content, DivProps} from '@jonny/base-ui';
 
 export default ({
 	children,
-	message,
+	tip,
 	preferredPlacement,
 	borderColor = '#b3b3b3',
 	borderWidth = 0,
@@ -16,7 +16,7 @@ export default ({
 	arrowDivProps = {}
 }: {
 	children: any;
-	message: any;
+	tip: any;
 	preferredPlacement: Placement;
 	borderColor?: string;
 	borderWidth?: number;
@@ -50,7 +50,7 @@ export default ({
 						visible={tooltip}
 						{...popoverProps}
 					>
-						{message}
+						{tip}
 					</Content>
 				)}
 			</Popper>

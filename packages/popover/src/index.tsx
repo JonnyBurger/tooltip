@@ -9,7 +9,7 @@ export default ({
 	children,
 	preferredPlacement,
 	onClose,
-	message,
+	tip,
 	borderWidth = 1,
 	borderColor,
 	borderStyle,
@@ -21,7 +21,7 @@ export default ({
 	children: any;
 	preferredPlacement: Placement;
 	onClose: () => void;
-	message: any;
+	tip: any;
 	borderWidth?: number;
 	borderColor?: string;
 	borderStyle?: LineStyle;
@@ -49,7 +49,7 @@ export default ({
 						popupProps={popupProps}
 						visible={popupVisible}
 					>
-						{message}
+						{tip}
 					</PopupContent>
 				)}
 			</Popper>
