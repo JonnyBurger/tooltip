@@ -1,9 +1,11 @@
 {
     "name": "@jonny/popover",
-    "version": "1.0.0-alpha.21",
+    "version": "1.0.0-alpha.22",
     "description": "My favorite popover",
     "main": "dist",
-    "files": ["dist"],
+    "files": [
+        "dist"
+    ],
     "repository": "JonnyBurger/tooltip",
     "author": "Jonny Burger",
     "scripts": {
@@ -12,7 +14,7 @@
         "prepare": "npm run build"
     },
     "dependencies": {
-        "@jonny/base-ui": "^1.0.0-alpha.21"
+        "@jonny/base-ui": "^1.0.0-alpha.22"
     },
     "peerDependencies": {
         "react": ">15"

@@ -1,6 +1,6 @@
 {
     "name": "@jonny/base-ui",
-    "version": "1.0.0-alpha.21",
+    "version": "1.0.0-alpha.22",
     "main": "dist",
     "scripts": {
         "test": "exit 0",
@@ -14,7 +14,9 @@
     "dependencies": {
         "popper.js": "^1.15.0"
     },
-    "files": ["dist"],
+    "files": [
+        "dist"
+    ],
     "peerDependencies": {
         "react": ">15"
     },
