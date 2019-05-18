@@ -14,7 +14,7 @@
         "popper.js": "^1.15.0"
     },
     "peerDependencies": {
-        "react": "^16.8.6"
+        "react": ">15"
     },
     "devDependencies": {
         "@types/react": "^16.8.17"
