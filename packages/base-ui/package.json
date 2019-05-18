@@ -8,7 +8,8 @@
         "prepare": "npm run build"
     },
     "private": false,
-    "author": "",
+    "author": "Jonny Burger",
+    "repository": "JonnyBurger/tooltip",
     "license": "ISC",
     "dependencies": {
         "popper.js": "^1.15.0"

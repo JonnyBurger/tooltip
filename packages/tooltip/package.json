@@ -8,6 +8,7 @@
         "build": "tsc -d",
         "prepare": "npm run build"
     },
+    "repository": "JonnyBurger/tooltip",
     "dependencies": {
         "@jonny/base-ui": "^1.0.0-alpha.21",
         "csstype": "^2.6.4",
@@ -17,7 +18,7 @@
     "peerDependencies": {
         "react": ">15"
     },
-    "author": "",
+    "author": "Jonny Burger",
     "license": "ISC",
     "devDependencies": {
         "@types/react": "^16.8.17"
