@@ -3,6 +3,7 @@
     "version": "1.0.0-alpha.21",
     "description": "My favorite tooltip",
     "main": "dist",
+    "files": ["dist"],
     "scripts": {
         "test": "exit 0",
         "build": "tsc -d",

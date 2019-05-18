@@ -14,6 +14,7 @@
     "dependencies": {
         "popper.js": "^1.15.0"
     },
+    "files": ["dist"],
     "peerDependencies": {
         "react": ">15"
     },
