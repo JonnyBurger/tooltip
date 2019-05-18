@@ -106,7 +106,10 @@ export default class extends Component<PopupProps> {
 					placement={placement}
 					bubbleProps={bubbleProps}
 					bubbleStyle={{
-						padding: 12,
+						paddingLeft: 12,
+						paddingRight: 12,
+						paddingTop: 12,
+						paddingBottom: 12,
 						backgroundColor: 'white',
 						color: 'black',
 						fontWeight: 300,
