@@ -61,7 +61,14 @@ export default class extends React.Component<Props> {
 						})
 					}
 				</Reference>
-				<Popper placement={preferredPlacement}>
+				<Popper
+					placement={preferredPlacement}
+					modifiers={{
+						computeStyle: {
+							gpuAcceleration: false
+						}
+					}}
+				>
 					{({ref, arrowProps: popperArrowProps, ...popoverProps}) => (
 						<Content
 							arrowSize={arrowSize}

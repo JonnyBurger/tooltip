@@ -51,7 +51,14 @@ export default ({
 	<Manager>
 		<Reference>{({ref}) => React.cloneElement(children, {ref})}</Reference>
 		{popupVisible ? (
-			<Popper placement={preferredPlacement}>
+			<Popper
+				placement={preferredPlacement}
+				modifiers={{
+					computeStyle: {
+						gpuAcceleration: false
+					}
+				}}
+			>
 				{({ref, arrowProps: popperArrowProps, ...popperProps}) => (
 					<PopupContent
 						passRef={ref}
