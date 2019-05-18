@@ -109,6 +109,7 @@ export default class extends Component<PopupProps> {
 						padding: 12,
 						backgroundColor: 'white',
 						color: 'black',
+						fontWeight: 300,
 						...commonStyle,
 						...bubbleStyle
 					}}

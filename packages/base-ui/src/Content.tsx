@@ -89,6 +89,7 @@ export default class extends Component<{
 					fontSize: 12,
 					zIndex: 1,
 					textAlign: 'left',
+					fontWeight: 300,
 					borderWidth: actualBubbleBorderWidth,
 					borderStyle: bubbleBorderStyle || borderStyle,
 					borderColor: bubbleBorderColor || borderColor,
