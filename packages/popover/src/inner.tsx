@@ -29,7 +29,7 @@ type PopupProps = {
 	arrowBorderStyle?: LineStyle;
 };
 
-export default class extends Component<PopupProps> {
+export default class Popover extends Component<PopupProps> {
 	el = React.createRef<HTMLDivElement>();
 	clickOff: (arg0: Event) => void;
 	keyPress: (arg0: KeyboardEvent) => void;

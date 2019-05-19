@@ -25,7 +25,7 @@ type Props = {
 	arrowBorderStyle?: LineStyle;
 };
 
-export default class extends React.Component<Props> {
+export default class Tooltip extends React.Component<Props> {
 	state = {
 		tooltip: false
 	};
