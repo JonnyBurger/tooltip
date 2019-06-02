@@ -57,7 +57,8 @@ export default class Tooltip extends React.Component<Props> {
 						React.cloneElement(children, {
 							ref,
 							onMouseEnter: () => this.setState({tooltip: true}),
-							onMouseLeave: () => this.setState({tooltip: false})
+							onMouseLeave: () => this.setState({tooltip: false}),
+							onClick: () => this.setState({tooltip: true})
 						})
 					}
 				</Reference>
