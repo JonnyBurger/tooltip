@@ -62,41 +62,43 @@ export default class Tooltip extends React.Component<Props> {
 						})
 					}
 				</Reference>
-				<Popper
-					eventsEnabled={Boolean(tip)}
-					placement={preferredPlacement}
-					modifiers={{
-						computeStyle: {
-							gpuAcceleration: false
-						}
-					}}
-				>
-					{({ref, arrowProps: popperArrowProps, ...popoverProps}) => (
-						<Content
-							arrowSize={arrowSize}
-							borderColor={borderColor}
-							bubbleBorderColor={bubbleBorderColor}
-							arrowBorderColor={arrowBorderColor}
-							borderWidth={borderWidth}
-							bubbleBorderWidth={bubbleBorderWidth}
-							arrowBorderWidth={arrowBorderWidth}
-							borderStyle={borderStyle}
-							bubbleBorderStyle={bubbleBorderStyle}
-							arrowBorderStyle={arrowBorderStyle}
-							arrowProps={arrowProps}
-							arrowStyle={arrowStyle}
-							bubbleStyle={bubbleStyle}
-							bubbleProps={bubbleProps}
-							passRef={ref}
-							visible={this.state.tooltip}
-							commonStyle={style}
-							popperArrowProps={popperArrowProps}
-							{...popoverProps}
-						>
-							{tip}
-						</Content>
-					)}
-				</Popper>
+				{tip ? (
+					<Popper
+						eventsEnabled={Boolean(tip)}
+						placement={preferredPlacement}
+						modifiers={{
+							computeStyle: {
+								gpuAcceleration: false
+							}
+						}}
+					>
+						{({ref, arrowProps: popperArrowProps, ...popoverProps}) => (
+							<Content
+								arrowSize={arrowSize}
+								borderColor={borderColor}
+								bubbleBorderColor={bubbleBorderColor}
+								arrowBorderColor={arrowBorderColor}
+								borderWidth={borderWidth}
+								bubbleBorderWidth={bubbleBorderWidth}
+								arrowBorderWidth={arrowBorderWidth}
+								borderStyle={borderStyle}
+								bubbleBorderStyle={bubbleBorderStyle}
+								arrowBorderStyle={arrowBorderStyle}
+								arrowProps={arrowProps}
+								arrowStyle={arrowStyle}
+								bubbleStyle={bubbleStyle}
+								bubbleProps={bubbleProps}
+								passRef={ref}
+								visible={this.state.tooltip}
+								commonStyle={style}
+								popperArrowProps={popperArrowProps}
+								{...popoverProps}
+							>
+								{tip}
+							</Content>
+						)}
+					</Popper>
+				) : null}
 			</Manager>
 		);
 	}
