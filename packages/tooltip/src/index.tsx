@@ -63,6 +63,7 @@ export default class Tooltip extends React.Component<Props> {
 					}
 				</Reference>
 				<Popper
+					eventsEnabled={Boolean(tip)}
 					placement={preferredPlacement}
 					modifiers={{
 						computeStyle: {
