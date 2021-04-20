@@ -7,7 +7,7 @@ export const App: React.FC = () => {
     <div>
       <div>Hello World!</div>
       <Popover
-        tip={<div style={{}}>hi</div>}
+        tip={<div>hi there!</div>}
         preferredPlacement="bottom"
         popupVisible={popover}
         onClose={() => setPopover(false)}

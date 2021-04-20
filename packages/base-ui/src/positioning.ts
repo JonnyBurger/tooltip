@@ -9,6 +9,7 @@ export const getArrowStyle = ({
   borderStyle,
   borderColor,
   tooltipSize,
+  transform,
 }: {
   placement: Placement;
   bubbleBorderWidth: number;
@@ -16,6 +17,7 @@ export const getArrowStyle = ({
   borderStyle: StandardProperties["borderTopStyle"];
   borderColor: StandardProperties["borderColor"];
   tooltipSize: number;
+  transform: string;
 }): CSSProperties => {
   const isBottom = Boolean(placement && placement.indexOf("bottom") === 0);
   const isLeft = Boolean(placement && placement.indexOf("left") === 0);
@@ -80,6 +82,6 @@ export const getArrowStyle = ({
     position: "absolute",
     height: tooltipSize,
     width: tooltipSize,
-    transform: "rotate(45deg)",
+    transform: [transform, "rotate(45deg)"].join(" "),
   };
 };

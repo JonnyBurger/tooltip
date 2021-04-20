@@ -112,6 +112,7 @@ export default class extends Component<{
                 borderStyle) as StandardProperties["borderTopStyle"],
               borderColor: arrowBorderColor || borderColor,
               tooltipSize: arrowSize,
+              transform: popperArrowProps.style.transform as string,
             }),
             backgroundColor: defaultColor,
             ...commonStyle,
