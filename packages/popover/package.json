@@ -1,24 +1,30 @@
 {
-    "name": "@jonny/popover",
-    "version": "1.0.0-alpha.31",
-    "description": "My favorite popover",
-    "main": "dist",
-    "files": [
-        "dist"
-    ],
-    "repository": "JonnyBurger/tooltip",
-    "author": "Jonny Burger",
-    "scripts": {
-        "test": "exit 0",
-        "build": "tsc -d",
-        "prepare": "npm run build"
-    },
-    "dependencies": {
-        "@jonny/base-ui": "^1.0.0-alpha.31"
-    },
-    "peerDependencies": {
-        "react": ">15"
-    },
-    "private": false,
-    "license": "ISC"
+  "name": "@jonny/popover",
+  "version": "1.0.0-alpha.31",
+  "description": "My favorite popover",
+  "main": "dist",
+  "files": [
+    "dist"
+  ],
+  "repository": "JonnyBurger/tooltip",
+  "author": "Jonny Burger",
+  "scripts": {
+    "test": "exit 0",
+    "build": "tsc -d",
+    "prepare": "npm run build",
+    "watch": "tsc -w"
+  },
+  "dependencies": {
+    "@jonny/base-ui": "^1.0.0-alpha.31",
+    "@popperjs/core": "^2.9.2",
+    "react-popper": "^2.2.5"
+  },
+  "peerDependencies": {
+    "react": ">16"
+  },
+  "private": false,
+  "license": "ISC",
+  "devDependencies": {
+    "typescript": "^4.2.4"
+  }
 }
