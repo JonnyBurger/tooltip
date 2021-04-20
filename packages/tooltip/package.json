@@ -1,6 +1,6 @@
 {
   "name": "@jonny/tooltip",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "description": "My favorite tooltip",
   "main": "dist",
   "files": [
@@ -14,7 +14,7 @@
   },
   "repository": "JonnyBurger/tooltip",
   "dependencies": {
-    "@jonny/base-ui": "^1.0.0",
+    "@jonny/base-ui": "^2.0.0",
     "@popperjs/core": "^2.9.2",
     "csstype": "^2.6.4",
     "react-popper": "^2.2.5"
