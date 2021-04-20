@@ -23,7 +23,6 @@
     "react": ">16"
   },
   "devDependencies": {
-    "@types/react": "^16.8.17",
     "csstype": "^3.0.8",
     "typescript": "4.2.4"
   }

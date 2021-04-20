@@ -1,8 +1,8 @@
 import React, { CSSProperties } from "react";
 import { Manager, Reference, Popper } from "react-popper";
-import { Placement } from "popper.js";
+import { Placement } from "@popperjs/core";
 import PopupContent from "./inner";
-import { LineStyle } from "csstype";
+import { StandardProperties } from "csstype";
 import { DivProps } from "@jonny/base-ui";
 
 export default ({
@@ -33,7 +33,7 @@ export default ({
   tip: any;
   borderWidth?: number;
   borderColor?: string;
-  borderStyle?: LineStyle;
+  borderStyle?: StandardProperties["borderTopStyle"];
   arrowSize?: number;
   bubbleProps?: DivProps;
   arrowProps?: DivProps;
@@ -45,13 +45,23 @@ export default ({
   arrowBorderWidth?: number;
   bubbleBorderColor?: string;
   arrowBorderColor?: string;
-  bubbleBorderStyle?: LineStyle;
-  arrowBorderStyle?: LineStyle;
+  bubbleBorderStyle?: StandardProperties["borderTopStyle"];
+  arrowBorderStyle?: StandardProperties["borderTopStyle"];
 }) => (
   <Manager>
     <Reference>{({ ref }) => React.cloneElement(children, { ref })}</Reference>
     {popupVisible ? (
-      <Popper placement={preferredPlacement}>
+      <Popper
+        placement={preferredPlacement}
+        modifiers={[
+          {
+            name: "offset",
+            options: {
+              offset: [0, 10],
+            },
+          },
+        ]}
+      >
         {({ ref, arrowProps: popperArrowProps, ...popperProps }) => (
           <PopupContent
             passRef={ref}

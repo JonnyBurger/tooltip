@@ -4,17 +4,24 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "start": "webpack serve",
     "test": "echo \"Error: no test specified\" && exit 1",
     "watch": "tsc -w"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@jonny/popover": "^1.0.0-alpha.31",
+    "@jonny/tooltip": "^1.0.0-alpha.31",
+    "@webhotelier/webpack-fast-refresh": "^5.1.0",
+    "esbuild-loader": "^2.12.0",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "webpack": "^5.34.0"
   },
   "devDependencies": {
-    "typescript": "^4.2.4"
+    "typescript": "^4.2.4",
+    "webpack-cli": "^4.6.0",
+    "webpack-dev-server": "^3.11.2"
   }
 }

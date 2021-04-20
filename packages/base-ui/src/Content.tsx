@@ -1,8 +1,8 @@
 import React, { Component, CSSProperties } from "react";
-import { RefHandler, PopperArrowProps } from "react-popper";
-import Popper from "popper.js";
+import { PopperArrowProps } from "react-popper";
+import Popper from "@popperjs/core";
 import { StandardProperties } from "csstype";
-import { getContainerStyle, getArrowStyle } from "./positioning";
+import { getArrowStyle } from "./positioning";
 import { DivProps } from "./types";
 import validateCss from "./validate.css";
 
@@ -94,7 +94,6 @@ export default class extends Component<{
           borderStyle: bubbleBorderStyle || borderStyle,
           borderColor: bubbleBorderColor || borderColor,
           ...style,
-          ...getContainerStyle(placement, actualBubbleBorderWidth, arrowSize),
           ...commonStyle,
           ...bubbleStyle,
         }}

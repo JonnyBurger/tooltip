@@ -1,4 +1,4 @@
-import { Placement } from "popper.js";
+import { Placement } from "@popperjs/core";
 import { CSSProperties } from "react";
 import { StandardProperties } from "csstype";
 
@@ -81,25 +81,5 @@ export const getArrowStyle = ({
     height: tooltipSize,
     width: tooltipSize,
     transform: "rotate(45deg)",
-  };
-};
-
-export const getContainerStyle = (
-  placement: Placement,
-  borderWidth: number,
-  tooltipSize: number
-): CSSProperties => {
-  const isBottom = Boolean(placement && placement.indexOf("bottom") === 0);
-  const isLeft = Boolean(placement && placement.indexOf("left") === 0);
-  const isRight = Boolean(placement && placement.indexOf("right") === 0);
-  const isTop = Boolean(placement && placement.indexOf("top") === 0);
-
-  const offset = Math.floor(tooltipSize / 2) + borderWidth;
-
-  return {
-    ...(isBottom ? { marginTop: offset } : {}),
-    ...(isTop ? { marginBottom: offset } : {}),
-    ...(isLeft ? { marginRight: offset } : {}),
-    ...(isRight ? { marginLeft: offset } : {}),
   };
 };

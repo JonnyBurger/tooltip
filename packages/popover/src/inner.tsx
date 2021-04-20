@@ -1,8 +1,8 @@
 import { Content, DivProps } from "@jonny/base-ui";
-import { LineStyle } from "csstype";
-import Popper from "popper.js";
+import { StandardProperties } from "csstype";
+import Popper from "@popperjs/core";
 import React, { CSSProperties, useEffect, useRef } from "react";
-import { PopperArrowProps, RefHandler } from "react-popper";
+import { PopperArrowProps } from "react-popper";
 
 type PopupProps = {
   onClose: () => void;
@@ -11,7 +11,7 @@ type PopupProps = {
   placement: Popper.Placement;
   borderWidth?: number;
   borderColor?: string;
-  borderStyle?: LineStyle;
+  borderStyle?: StandardProperties["borderTopStyle"];
   popperArrowProps: PopperArrowProps;
   children: React.ReactNode;
   arrowSize?: number;
@@ -25,8 +25,8 @@ type PopupProps = {
   arrowBorderWidth?: number;
   bubbleBorderColor?: string;
   arrowBorderColor?: string;
-  bubbleBorderStyle?: LineStyle;
-  arrowBorderStyle?: LineStyle;
+  bubbleBorderStyle?: StandardProperties["borderTopStyle"];
+  arrowBorderStyle?: StandardProperties["borderTopStyle"];
 };
 
 export default (props: PopupProps): JSX.Element => {
@@ -57,13 +57,17 @@ export default (props: PopupProps): JSX.Element => {
   const el = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    const clickOff = (evt: MouseEvent) => {
+    // Don't implement hide logic if not visible
+    if (!visible) {
+      return;
+    }
+    const clickHandler = (evt: MouseEvent) => {
       const { current } = el;
       if (!current) {
         return;
       }
       if (!current.contains(evt.target as Node)) {
-        document.removeEventListener("click", clickOff);
+        document.removeEventListener("click", clickHandler);
         props.onClose();
       }
     };
@@ -76,17 +80,19 @@ export default (props: PopupProps): JSX.Element => {
         props.onClose();
       }
     };
-    document.addEventListener("click", clickOff);
-    document.addEventListener("keydown", keyPress);
+    setTimeout(() => {
+      document.addEventListener("click", clickHandler);
+      document.addEventListener("keydown", keyPress);
+    }, 1);
 
     return () => {
-      document.removeEventListener("click", clickOff);
+      document.removeEventListener("click", clickHandler);
       document.removeEventListener("keydown", keyPress);
     };
-  }, [props]);
+  }, [visible, props.onClose]);
 
   return (
-    <div ref={el}>
+    <div>
       <Content
         borderWidth={borderWidth}
         bubbleBorderWidth={bubbleBorderWidth}
@@ -119,7 +125,7 @@ export default (props: PopupProps): JSX.Element => {
         style={style}
         commonStyle={commonStyle}
       >
-        {children}
+        <div ref={el}>{children}</div>
       </Content>
     </div>
   );
