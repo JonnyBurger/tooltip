@@ -1,6 +1,6 @@
 {
   "name": "@jonny/popover",
-  "version": "1.0.0-alpha.31",
+  "version": "1.0.0",
   "description": "My favorite popover",
   "main": "dist",
   "files": [
@@ -15,7 +15,7 @@
     "watch": "tsc -w"
   },
   "dependencies": {
-    "@jonny/base-ui": "^1.0.0-alpha.31",
+    "@jonny/base-ui": "^1.0.0",
     "@popperjs/core": "^2.9.2",
     "react-popper": "^2.2.5"
   },

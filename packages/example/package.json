@@ -11,8 +11,8 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@jonny/popover": "^1.0.0-alpha.31",
-    "@jonny/tooltip": "^1.0.0-alpha.31",
+    "@jonny/popover": "^1.0.0",
+    "@jonny/tooltip": "^1.0.0",
     "@webhotelier/webpack-fast-refresh": "^5.1.0",
     "esbuild-loader": "^2.12.0",
     "react": "^17.0.2",
