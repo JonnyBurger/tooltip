@@ -23,11 +23,12 @@ type Props = {
   arrowBorderColor?: string;
   bubbleBorderStyle?: LineStyle;
   arrowBorderStyle?: LineStyle;
+  strategy?: "absolute" | "fixed";
 };
 
 export type TooltipPlacement = Placement;
 
-const Tooltip: React.FC<Props> = (props) => {
+export const Tooltip: React.FC<Props> = (props) => {
   const [tooltip, setTooltip] = useState(false);
   const {
     children,
@@ -48,6 +49,7 @@ const Tooltip: React.FC<Props> = (props) => {
     arrowBorderColor,
     bubbleBorderStyle,
     arrowBorderStyle,
+    strategy,
   } = props;
   return (
     <Manager>
@@ -63,6 +65,7 @@ const Tooltip: React.FC<Props> = (props) => {
       </Reference>
       {tip ? (
         <Popper
+          strategy={strategy ?? "fixed"}
           placement={preferredPlacement}
           modifiers={[
             {
@@ -106,5 +109,3 @@ const Tooltip: React.FC<Props> = (props) => {
     </Manager>
   );
 };
-
-export default Tooltip;

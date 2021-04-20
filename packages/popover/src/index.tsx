@@ -5,28 +5,7 @@ import PopupContent from "./inner";
 import { StandardProperties } from "csstype";
 import { DivProps } from "@jonny/base-ui";
 
-export default ({
-  children,
-  preferredPlacement,
-  onClose,
-  tip,
-  borderWidth = 1,
-  borderColor,
-  borderStyle,
-  arrowSize,
-  bubbleProps,
-  arrowProps,
-  popupVisible,
-  style = {},
-  arrowStyle = {},
-  bubbleStyle = {},
-  bubbleBorderWidth,
-  arrowBorderWidth,
-  bubbleBorderColor,
-  arrowBorderColor,
-  bubbleBorderStyle,
-  arrowBorderStyle,
-}: {
+export const Popover: React.FC<{
   children: any;
   preferredPlacement: Placement;
   onClose: () => void;
@@ -47,11 +26,35 @@ export default ({
   arrowBorderColor?: string;
   bubbleBorderStyle?: StandardProperties["borderTopStyle"];
   arrowBorderStyle?: StandardProperties["borderTopStyle"];
+  strategy?: "absolute" | "fixed";
+}> = ({
+  children,
+  preferredPlacement,
+  onClose,
+  tip,
+  borderWidth = 1,
+  borderColor,
+  borderStyle,
+  arrowSize,
+  bubbleProps,
+  arrowProps,
+  popupVisible,
+  style = {},
+  arrowStyle = {},
+  bubbleStyle = {},
+  bubbleBorderWidth,
+  arrowBorderWidth,
+  bubbleBorderColor,
+  arrowBorderColor,
+  bubbleBorderStyle,
+  arrowBorderStyle,
+  strategy,
 }) => (
   <Manager>
     <Reference>{({ ref }) => React.cloneElement(children, { ref })}</Reference>
     {popupVisible ? (
       <Popper
+        strategy={strategy ?? "fixed"}
         placement={preferredPlacement}
         modifiers={[
           {
