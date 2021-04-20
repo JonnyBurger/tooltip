@@ -92,7 +92,7 @@ export default (props: PopupProps): JSX.Element => {
   }, [visible, props.onClose]);
 
   return (
-    <div>
+    <div ref={el} style={{ display: "inline" }}>
       <Content
         borderWidth={borderWidth}
         bubbleBorderWidth={bubbleBorderWidth}
@@ -125,7 +125,7 @@ export default (props: PopupProps): JSX.Element => {
         style={style}
         commonStyle={commonStyle}
       >
-        <div ref={el}>{children}</div>
+        {children}
       </Content>
     </div>
   );

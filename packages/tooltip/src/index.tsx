@@ -27,7 +27,7 @@ type Props = {
 
 export type TooltipPlacement = Placement;
 
-export default (props: Props): React.ReactNode => {
+const Tooltip: React.FC<Props> = (props) => {
   const [tooltip, setTooltip] = useState(false);
   const {
     children,
@@ -68,7 +68,10 @@ export default (props: Props): React.ReactNode => {
             {
               name: "offset",
               options: {
-                offset: [0, 10],
+                offset: [
+                  0,
+                  Math.floor((arrowSize ?? 12) / 2) + borderWidth + 2,
+                ],
               },
             },
           ]}
@@ -103,3 +106,5 @@ export default (props: Props): React.ReactNode => {
     </Manager>
   );
 };
+
+export default Tooltip;

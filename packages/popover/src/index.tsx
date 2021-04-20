@@ -57,7 +57,7 @@ export default ({
           {
             name: "offset",
             options: {
-              offset: [0, 10],
+              offset: [0, Math.floor((arrowSize ?? 12) / 2) + borderWidth + 2],
             },
           },
         ]}
